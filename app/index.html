@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="todoApp" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TodoApp - AngularJS</title>
+
+    <script type="text/javascript" src="../node_modules/angular/angular.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="app.module.js"></script>
+</head>
+<body ng-controller="TodoAppController">
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>{{ id }}</td>
+        </tr>
+
+        <tr>
+            <td>Todo</td>
+            <td><input type="text" ng-model="todo"></td>
+        </tr>
+
+        <tr>
+            <td>Priority</td>
+            <td><input type="number" ng-model="priority"></td>
+        </tr>
+
+        <tr>
+            <td><input type="button" ng-click="addTodo()" value="Add"></td>
+            <td><input type="button" ng-click="updateTodo()" value="Update"></td>
+        </tr>
+    </table>
+
+    <table border="1" style="width:300px">
+
+        <thead>
+            <th>ID</th>
+            <th>Todo</th>
+            <th>Priority</th>
+        </thead>
+
+        <tr ng-click="BindSelectedData(todo)" ng-repeat="todo in todoList">
+            <td>{{ todo.id }}</td>
+            <td>{{ todo.name }}</td>
+            <td>{{ todo.priority }}</td>
+            <td><input type="button" value="Delete" ng-click="deleteTodo(todo)"></td>
+        </tr>
+
+    </table>
+</body>
+</html>
