@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="todoApp" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TodoApp - AngularJS</title>
+
+    <link rel="stylesheet" href="main.css">
+    <script type="text/javascript" src="../node_modules/angular/angular.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="app.module.js"></script>
+</head>
+<body ng-controller="TodoAppController">
+    <h1>ToDo App</h1>
+    
+    <div class="container">
+            <div class="todo-form">
+                <label for="todo"> Todo: </label>
+                <input class="todo-form-input" name="todo" type="text" ng-model="todo">
+            </div>
+            <div class="todo-form">
+                    <label for="priority"> Priority: </label>
+                    <input class="todo-form-input" name="priority" type="number" ng-model="priority">
+            </div>
+            <div class="todo-form">
+                <input class="todo-form-button" type="button" ng-click="addTodo()" value="Add">
+                <input class="todo-form-button" type="button" ng-click="updateTodo()" value="Update">
+            </div>  
+
+            <div class="todo-list-header" ng-show="todoList.length > 0">
+                <div class="todo-list-header-item">id</div>
+                <div class="todo-list-header-item">Todo</div>
+                <div class="todo-list-header-item">Priority</div>
+            </div>
+
+            <div class="todo-list" ng-repeat="todo in todoList">
+                <div class="todo-list-item">{{ todo.id }}</div>
+                <div class="todo-list-item">{{ todo.name }}</div>
+                <div class="todo-list-item">{{ todo.priority }}</div>
+                <input class="todo-delete-button" type="button" value="&times;" ng-click="deleteTodo(todo)">
+            </div>
+    </div>
+</body>
+</html>
