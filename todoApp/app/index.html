@@ -12,8 +12,8 @@
     <script type="text/javascript" src="app.module.js"></script>
 </head>
 <body ng-controller="TodoAppController">
-    <h1>ToDo App</h1>
     
+    <h1>ToDo App</h1>
     <div class="container">
             <div class="todo-form">
                 <label for="todo"> Todo: </label>
@@ -25,7 +25,7 @@
             </div>
             <div class="todo-form">
                 <input class="todo-form-button" type="button" ng-click="addTodo()" value="Add">
-                <input class="todo-form-button" type="button" ng-click="updateTodo()" value="Update">
+                <input class="todo-form-button" type="button" ng-click="updateTodo(todo)" value="Update">
             </div>  
 
             <div class="todo-list-header" ng-show="todoList.length > 0">
@@ -34,7 +34,7 @@
                 <div class="todo-list-header-item">Priority</div>
             </div>
 
-            <div class="todo-list" ng-repeat="todo in todoList">
+            <div class="todo-list" ng-click="BindSelectedData(todo)" ng-repeat="todo in todoList">
                 <div class="todo-list-item">{{ todo.id }}</div>
                 <div class="todo-list-item">{{ todo.name }}</div>
                 <div class="todo-list-item">{{ todo.priority }}</div>
