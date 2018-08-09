@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="prayerApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prayer Times App</title>
+
+    <link rel="stylesheet" href="main.css">
+    <script type="text/javascript" src="../node_modules/angular/angular.js"></script>
+    <script type="text/javascript" src="app.module.js"></script>
+</head>
+<body ng-controller="PrayerTimesController">
+    
+    <div><span>Latitude : </span> {{ latitude }}</div>
+    <div><span>Longitude: </span> {{ longitude }}</div>
+
+    
+    <div class="prayer-item-container">
+
+        <div class="prayer-time-item">
+            <div ng-repeat="date in dateList">
+                <span>{{ date }}</span>
+            </div>
+        </div>
+
+        <div class="prayer-time-item">
+            <div ng-repeat="fajr in fajrs track by $index">
+                <span>Fajr: {{ fajr }}</span>
+            </div>
+        </div>
+
+        <div class="prayer-time-item">
+            <div ng-repeat="dhuhr in dhuhrs track by $index">
+                <span>Dhuhr: {{ dhuhr }}</span>
+            </div>    
+        </div>
+
+        <div class="prayer-time-item">
+            <div ng-repeat="asr in asrs track by $index">
+                <span>Asr: {{ asr }}</span>
+            </div>
+        </div>
+
+        <div class="prayer-time-item">
+            <div ng-repeat="maghrib in maghribs track by $index">
+                <span>Maghrib: {{ maghrib }}</span>
+            </div>
+        </div>
+
+        <div class="prayer-time-item">
+            <div ng-repeat="isha in ishas track by $index">
+                <span>Isha: {{ isha }}</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

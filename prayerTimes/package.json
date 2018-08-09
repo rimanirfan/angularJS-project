@@ -1,0 +1,14 @@
+{
+  "name": "angular-prayertimes",
+  "version": "1.0.0",
+  "description": "Prayer times data using angularJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "M Riman Irfanto",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.7.3"
+  }
+}
