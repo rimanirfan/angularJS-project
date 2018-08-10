@@ -1,17 +1,25 @@
-let app = angular.module("todoApp", [])
+let app = angular.module("todoApp", [
+    "ngStorage"
+])
 
-app.controller("TodoAppController", function($scope){
+app.controller("TodoAppController", function(
+    $scope,
+    $localStorage,
+    $sessionStorage
+){
     $scope.todoList = []
-
+    let self        = this
+    self.id         = 0
     $scope.addTodo = function(){
         
         let todo = {
-            id       : $scope.todoList.length + 1,
+            id       : ++self.id,
             name     : $scope.todo,
             priority : $scope.priority
         }
 
         $scope.todoList.push(todo)
+        $localStorage.data = $scope.todoList
         ClearModel() //this will reset all values to default
     }
 
@@ -36,6 +44,14 @@ app.controller("TodoAppController", function($scope){
             }
             ClearModel() //this will reset all values to default
         })
+    }
+
+    $scope.showTodo = function() {
+        if($localStorage.data) {
+            $scope.todoList = $localStorage.data
+        } else {
+            return
+        }
     }
 
     function ClearModel(){
