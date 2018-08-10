@@ -15,8 +15,30 @@
     <div><span>Latitude : </span> {{ latitude }}</div>
     <div><span>Longitude: </span> {{ longitude }}</div>
 
-    
-    <div class="prayer-item-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Fajr</th>
+                <th>Dhuhr</th>
+                <th>Asr</th>
+                <th>Maghrib</th>
+                <th>Isha</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="timing in timings track by $index">
+                <td>{{ timing.date }}</td>
+                <td>{{ timing.fajr }}</td>
+                <td>{{ timing.dhuhr }}</td>
+                <td>{{ timing.asr }}</td>
+                <td>{{ timing.maghrib }}</td>
+                <td>{{ timing.isha }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- <div class="prayer-item-container">
 
         <div class="prayer-time-item">
             <div ng-repeat="date in dateList">
@@ -53,6 +75,7 @@
                 <span>Isha: {{ isha }}</span>
             </div>
         </div>
-    </div>
+
+    </div> -->
 </body>
 </html>
