@@ -1,0 +1,17 @@
+<div ng-controller="LoginAppController">
+    <form action="/" class="login-form">
+        <div class="login-form-content">
+            <label for="username">Username:</label>
+            <input type="username" ng-model="username">
+        </div>
+        
+        <div class="login-form-content">
+            <label for="password">Password:</label>
+            <input type="password" ng-model="password">
+        </div>
+
+        <div class="login-form-content">
+            <button type="button" ng-click="submit()">Login</button>
+        </div>
+    </form>
+</div>
