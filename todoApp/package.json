@@ -4,12 +4,13 @@
   "description": "TodoApp built with AngularJS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass": "node-sass -w scss/ -o app/css/ --recursive"
   },
   "author": "M Riman Irfanto",
   "license": "ISC",
   "dependencies": {
     "angular": "^1.7.2",
-    "ngstorage": "^0.3.11"
+    "ngstorage": "^0.3.11",
+    "node-sass": "^4.9.3"
   }
 }
