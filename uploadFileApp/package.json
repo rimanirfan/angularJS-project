@@ -9,6 +9,9 @@
   "author": "M Riman Irfanto",
   "license": "ISC",
   "dependencies": {
-    "angular": "^1.7.3"
+    "angular": "^1.7.3",
+    "browserify-shim": "^3.8.14",
+    "multer": "^1.3.1",
+    "requirejs": "^2.3.5"
   }
 }
