@@ -4,11 +4,12 @@
   "description": "A reddit clone built with angularJS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass": "node-sass -w scss/ -o app/css/ --recursive"
   },
   "author": "M Riman Irfanto",
   "license": "ISC",
   "dependencies": {
-    "angular": "^1.7.3"
+    "angular": "^1.7.3",
+    "node-sass": "^4.9.3"
   }
 }
