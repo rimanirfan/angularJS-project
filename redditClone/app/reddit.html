@@ -1,16 +1,17 @@
-<header>
-    <div class="site-nav">
+<header class="site-nav block">
+    <div class="container">
         <span>Reddit Clone</span>
     </div>
 </header>
 
 <main class="container">
-    <section class="site-menu">
+    <section class="site-menu block">
         <div class="site-menu__item">
             <input type="search" name="filter" id="" placeholder="Filter">
         </div>
 
         <div class="site-menu__item">
+            <label for="sort">Sort by:</label>
             <select name="sort" id="">
                 <option value="title"></option>
                 <option value="author"></option>
@@ -23,43 +24,44 @@
         </div>
     </section>
 
-    <section class="site-form">
+    <section class="site-form block">
         <form action="">
             <div class="form-content">
                 <label for="title">Title</label>
-                <input type="text" name="title" id="" />
+                <input class="form-input" type="text" name="title" id="" />
             </div>
 
             <div class="form-content">
                 <label for="description">Description</label>
-                <input type="text" name="escription" id="" />
+                <textarea class="form-input" name="description" id="" cols="10" rows="10"></textarea>
             </div>
 
             <div class="form-content">
                 <label for="author">Author</label>
-                <input type="text" name="author" id="" />
+                <input class="form-input" type="text" name="author" id="" />
             </div>
 
             <div class="form-content">
                 <label for="image">Image Url</label>
-                <input type="text" name="title" id="" />
+                <input class="form-input" type="text" name="title" id="" />
             </div>
 
             <button>Create Post</button>
         </form>
     </section>
 
-    <section class="site-post">
-        <div class="post-header">
+    <section class="site-post block">
+        <div class="post-header block">
             <span>Some Text | </span>
             <span>Up</span>
             <span>Down</span>
+            <span>10</span>
+            <div class="post-header__author">Some author</div>
         </div>
 
-        <div class="post-content">
-            <div class="post-content__author"></div>
+        <div class="post-content block">
             <div class="post-content__details">
-                <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos, pariatur.</div>
+                <div class="block">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos, pariatur.</div>
                 <span>Some time ago</span>
                 <span>Some comments</span>
             </div>

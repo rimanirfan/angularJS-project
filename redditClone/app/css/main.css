@@ -1,6 +1,58 @@
+body {
+  margin: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; }
+
 .container {
   width: 100%;
-  max-width: 960px; }
+  max-width: 960px;
+  margin: 0 auto; }
+
+.block {
+  margin-bottom: 15px; }
 
 .site-nav {
-  background: lightcoral; }
+  padding: 10px;
+  background: red;
+  font-size: 1.5rem;
+  color: #fff; }
+
+.site-menu {
+  display: flex; }
+  .site-menu .site-menu__item {
+    flex: 0 33.33%;
+    width: 33.33%;
+    text-align: left; }
+  .site-menu .site-menu__item:nth-child(3) {
+    text-align: right; }
+
+.site-form .form-content {
+  margin-bottom: 10px; }
+  .site-form .form-content label {
+    display: block;
+    margin-bottom: 5px; }
+  .site-form .form-content .form-input {
+    width: 100%;
+    padding: 5px 0;
+    border: none;
+    border: 1px solid #cec8c8;
+    border-radius: 5px; }
+
+.site-form button {
+  width: 100%;
+  padding: 10px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase; }
+
+.site-post {
+  padding: 30px;
+  height: 100%;
+  max-height: 250px;
+  background: #cec8c8; }
+  .site-post .post-header {
+    position: relative; }
+    .site-post .post-header .post-header__author {
+      position: absolute;
+      top: 0;
+      right: 0; }
