@@ -67,7 +67,7 @@
             </div>
             <div class="post-content__details">
                 <div class="block">{{ post.description }}</div>
-                <span>{{ post.createdOn | date}} |</span>
+                <span am-time-ago="post.createdOn"></span>
                 <a href="">
                     <ng-pluralize count="post.comments.length" when="{'0': 'No comment', '1':'1 comment', 'other':'{} comments'}"></ng-pluralize>
                     <!-- <span>{{ post.comments }}</span> -->

@@ -1,11 +1,13 @@
 let app = angular.module('redditApp', [
-    "ngStorage"
+    "ngStorage",
+    "angularMoment"
 ])
 
 app.component('reddit', {
     controller: function(
         $scope,
-        $localStorage
+        $localStorage,
+        moment
     ) {
         // const self = this
         $scope.tab   = 1 
