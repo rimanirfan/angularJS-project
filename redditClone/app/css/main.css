@@ -56,3 +56,16 @@ body {
       position: absolute;
       top: 0;
       right: 0; }
+  .site-post .post-content {
+    display: flex; }
+    .site-post .post-content .post-content__img {
+      flex: 0 30%;
+      width: 30%;
+      margin-right: 10px; }
+      .site-post .post-content .post-content__img img {
+        object-fit: contain;
+        width: 100%; }
+    .site-post .post-content .post-content__details {
+      flex: 0 70%;
+      width: 70%;
+      margin-left: 10px; }

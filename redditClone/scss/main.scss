@@ -34,7 +34,7 @@ body {
         text-align: left;
     }
 
-    .site-menu__item:nth-child(3,4) {
+    .site-menu__item:nth-child(3) {
         text-align: right;
     }
 }
@@ -89,7 +89,24 @@ body {
     }
 
     .post-content {
-        // display: flex;
+        display: flex;
+
+        .post-content__img {
+            flex: 0 30%;
+            width: 30%;
+            margin-right: 10px;
+
+            img {
+                object-fit: contain;
+                width: 100%;
+            }
+        }
+
+        .post-content__details {
+            flex: 0 70%;
+            width: 70%;
+            margin-left: 10px;
+        }
     }
 }
 

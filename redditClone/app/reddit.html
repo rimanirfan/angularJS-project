@@ -4,7 +4,7 @@
     </div>
 </header>
 
-<main class="container">
+<main class="container" data-ng-init="showPosts()">
     <section class="site-menu block">
         <div class="site-menu__item">
             <input type="search" name="filter" id="" placeholder="Filter">
@@ -27,45 +27,51 @@
     </section>
 
     <section class="site-form block">
-        <form action="" ng-show="isSet(2)" ng-submit="submitPost()">
+        <form action="" ng-show="isSet(2)" ng-submit="submitPost($event)">
             <div class="form-content">
                 <label for="title">Title</label>
-                <input class="form-input" type="text" ng-model="title" name="title" id="" />
+                <input class="form-input" type="text" ng-model="title" name="title" id="" required/>
             </div>
 
             <div class="form-content">
                 <label for="description">Description</label>
-                <textarea class="form-input" ng-model="description" name="description" id="" cols="10" rows="10"></textarea>
+                <textarea class="form-input" ng-model="description" name="description" id="" cols="10" rows="10" required></textarea>
             </div>
 
             <div class="form-content">
                 <label for="author">Author</label>
-                <input class="form-input" type="text" ng-model="author" name="author" id="" />
+                <input class="form-input" type="text" ng-model="author" name="author" id="" required/>
             </div>
 
             <div class="form-content">
                 <label for="image">Image Url</label>
-                <input class="form-input" type="text" ng-model="imgUrl" name="imgUrl" id="" />
+                <input class="form-input" type="text" ng-model="imgUrl" name="imgUrl" id="" required/>
             </div>
 
             <button type="submit">Create Post</button>
         </form>
     </section>
 
-    <section class="site-post block" ng-show="isSet(1)">
+    <section class="site-post block" ng-show="isSet(1)" ng-repeat="post in posts | orderBy:'-votes'">
         <div class="post-header block">
-            <span>Some Text | </span>
+            <span>{{ post.title }} | </span>
             <span>Up</span>
             <span>Down</span>
-            <span>10</span>
-            <div class="post-header__author">Some author</div>
+            <span>{{ post.votes }}</span>
+            <div class="post-header__author">{{ post.author }}</div>
         </div>
 
         <div class="post-content block">
+            <div class="post-content__img">
+                <img ng-src="{{post.imgUrl}}" alt="">
+            </div>
             <div class="post-content__details">
-                <div class="block">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos, pariatur.</div>
-                <span>Some time ago</span>
-                <span>Some comments</span>
+                <div class="block">{{ post.description }}</div>
+                <span>{{ post.createdOn | date}} |</span>
+                <a href="">
+                    <ng-pluralize count="post.comments.length" when="{'0': 'No comment', '1':'1 comment', 'other':'{} comments'}"></ng-pluralize>
+                    <!-- <span>{{ post.comments }}</span> -->
+                </a>
             </div>
         </div>
 
