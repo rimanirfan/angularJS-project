@@ -52,6 +52,8 @@ body {
   background: #cec8c8; }
   .site-post .post-header {
     position: relative; }
+    .site-post .post-header .btn-upvote {
+      cursor: pointer; }
     .site-post .post-header .post-header__author {
       position: absolute;
       top: 0;

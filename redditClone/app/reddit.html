@@ -7,15 +7,18 @@
 <main class="container" data-ng-init="showPosts()">
     <section class="site-menu block">
         <div class="site-menu__item">
-            <input type="search" name="filter" id="" placeholder="Filter">
+            <input ng-model="filterBox" type="search" name="filter" id="" placeholder="Filter">
         </div>
 
         <div class="site-menu__item">
             <label for="sort">Sort by:</label>
-            <select name="sort" id="">
-                <option value="title"></option>
-                <option value="author"></option>
-                <option value="votes"></option>
+            <select ng-model="sortPosts" ng-init="sortPosts = '-votes' "  name="sort" id="">
+                <option value="votes">Votes Ascending</option>
+                <option value="-votes">Votes Descending</option>
+                <option value="createdOn">Date Ascending</option>
+                <option value="-createdOn">Date Descending</option>
+                <option value="title">Title Ascending</option>
+                <option value="-title">Title Descending</option>
             </select>
         </div>
 
@@ -52,11 +55,10 @@
         </form>
     </section>
 
-    <section class="site-post block" ng-show="isSet(1)" ng-repeat="post in posts | orderBy:'-votes'">
+    <section class="site-post block" ng-show="isSet(1)" ng-repeat="post in posts | orderBy: sortPosts | filter: {title: filterBox}">
         <div class="post-header block">
             <span>{{ post.title }} | </span>
-            <span>Up</span>
-            <span>Down</span>
+            <span ng-click="upVote(post)" class="btn-upvote"><i class="fas fa-thumbs-up"></i></span>
             <span>{{ post.votes }}</span>
             <div class="post-header__author">{{ post.author }}</div>
         </div>
@@ -68,18 +70,25 @@
             <div class="post-content__details">
                 <div class="block">{{ post.description }}</div>
                 <span am-time-ago="post.createdOn"></span>
-                <a href="">
+                <a ng-click="setShowComments($index)" ng-hide="commentOn($index)" href="">
                     <ng-pluralize count="post.comments.length" when="{'0': 'No comment', '1':'1 comment', 'other':'{} comments'}"></ng-pluralize>
-                    <!-- <span>{{ post.comments }}</span> -->
                 </a>
+                <a ng-click="setShowComments(-1)" ng-show="commentOn($index)" href="">
+                    Hide Comments
+                </a>
+                <div class="post-comment" ng-show="commentOn($index)">
+                    <ul ng-repeat="comment in post.comments track by $index">
+                        <li>{{ comment.text }}</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
-        <div class="post-footer">
-            <form action="" class="comment-form">
-                <legend>Comment text</legend>
+        <div class="post-footer" ng-show="commentOn($index)">
+            <form action="" class="comment-form" ng-submit="submitComment(post, $event, commentText)">
+                <legend>Add a comment</legend>
 
-                <input type="text" name="comment" id=""/>
+                <input type="text" name="commentText" ng-model="commentText" required/>
                 <button type="submit">Submit</button>
             </form>
         </div>

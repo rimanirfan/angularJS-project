@@ -81,6 +81,10 @@ body {
     .post-header {
         position: relative;
 
+        .btn-upvote {
+            cursor: pointer;
+        }
+
         .post-header__author {
             position: absolute;
             top: 0;

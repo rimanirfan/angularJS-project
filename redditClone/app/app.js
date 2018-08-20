@@ -46,7 +46,6 @@ app.component('reddit', {
         ]
 
         $scope.posts = current
-        console.log($scope.posts)
         
         $scope.setTab = function(selected) {
             $scope.tab = selected
@@ -74,6 +73,29 @@ app.component('reddit', {
             
         }
 
+        $scope.upVote = function(post) {
+            post.votes++
+        }
+
+        $scope.commentCheck = -1
+        $scope.setShowComments = function(selected) {
+            $scope.commentCheck = selected
+        }
+
+        $scope.commentOn = function(on) {
+            return $scope.commentCheck === on
+        }
+
+        $scope.submitComment = function(post, $event, commentText) {
+            let commentSection = post.comments
+            let newComment = {
+                text : commentText
+            }
+            $event.preventDefault()
+            commentSection.push(newComment)
+            ClearModel()
+        }
+
         $scope.showPosts = function() {
             if($localStorage.data) {
                 $scope.posts = $localStorage.data
@@ -82,11 +104,13 @@ app.component('reddit', {
             }
         }
 
+
         function ClearModel(){
             $scope.title       = null
             $scope.description = null
             $scope.author      = null
             $scope.imgUrl      = null
+            // $scope.newComment  = null
         }
     },
     templateUrl: 'reddit.html'
