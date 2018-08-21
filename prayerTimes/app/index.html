@@ -6,76 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Prayer Times App</title>
 
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="./css/main.css">
     <script type="text/javascript" src="../node_modules/angular/angular.js"></script>
     <script type="text/javascript" src="app.module.js"></script>
+    <script type="text/javascript" src="prayertimes.component.js"></script>
 </head>
-<body ng-controller="PrayerTimesController">
-    
-    <div><span>Latitude : </span> {{ latitude }}</div>
-    <div><span>Longitude: </span> {{ longitude }}</div>
+<body>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Fajr</th>
-                <th>Dhuhr</th>
-                <th>Asr</th>
-                <th>Maghrib</th>
-                <th>Isha</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="timing in timings track by $index">
-                <td>{{ timing.date }}</td>
-                <td>{{ timing.fajr }}</td>
-                <td>{{ timing.dhuhr }}</td>
-                <td>{{ timing.asr }}</td>
-                <td>{{ timing.maghrib }}</td>
-                <td>{{ timing.isha }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <prayer-app></prayer-app>
 
-    <!-- <div class="prayer-item-container">
-
-        <div class="prayer-time-item">
-            <div ng-repeat="date in dateList">
-                <span>{{ date }}</span>
-            </div>
-        </div>
-
-        <div class="prayer-time-item">
-            <div ng-repeat="fajr in fajrs track by $index">
-                <span>Fajr: {{ fajr }}</span>
-            </div>
-        </div>
-
-        <div class="prayer-time-item">
-            <div ng-repeat="dhuhr in dhuhrs track by $index">
-                <span>Dhuhr: {{ dhuhr }}</span>
-            </div>    
-        </div>
-
-        <div class="prayer-time-item">
-            <div ng-repeat="asr in asrs track by $index">
-                <span>Asr: {{ asr }}</span>
-            </div>
-        </div>
-
-        <div class="prayer-time-item">
-            <div ng-repeat="maghrib in maghribs track by $index">
-                <span>Maghrib: {{ maghrib }}</span>
-            </div>
-        </div>
-
-        <div class="prayer-time-item">
-            <div ng-repeat="isha in ishas track by $index">
-                <span>Isha: {{ isha }}</span>
-            </div>
-        </div>
-
-    </div> -->
 </body>
 </html>

@@ -1,0 +1,25 @@
+<div><span>Latitude : </span> {{ latitude }}</div>
+<div><span>Longitude: </span> {{ longitude }}</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Fajr</th>
+            <th>Dhuhr</th>
+            <th>Asr</th>
+            <th>Maghrib</th>
+            <th>Isha</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="timing in timings track by $index">
+            <td>{{ timing.date }}</td>
+            <td>{{ timing.fajr }}</td>
+            <td>{{ timing.dhuhr }}</td>
+            <td>{{ timing.asr }}</td>
+            <td>{{ timing.maghrib }}</td>
+            <td>{{ timing.isha }}</td>
+        </tr>
+    </tbody>
+</table>
